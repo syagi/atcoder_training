@@ -3,7 +3,6 @@ def sweep_island(x,y):
 
     while len(stack) > 0:
         (x,y)=stack.pop()
-        print("C[",x,"][",y"]")
         C[x][y]="0"
 
         for i,j in [[x, y+1],[x,y-1],[x-1,y],[x+1,y]]:
