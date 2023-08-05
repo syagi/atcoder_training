@@ -11,7 +11,7 @@ results  = [[0 for _ in range(N)] for _ in range(N)]
 Corrects = [[0 for _ in range(N)] for _ in range(N)]
 
 Branches = []
-for i in range(M):
+for i in range(M)
     a,b,c = input().split()
     a = int(a)-1
     b = int(b)-1
