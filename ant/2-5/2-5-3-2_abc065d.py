@@ -44,5 +44,3 @@ for b in branches:
         sum += b[2]
 
 print(sum)
-
-
