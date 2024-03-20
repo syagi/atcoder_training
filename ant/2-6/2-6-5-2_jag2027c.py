@@ -7,7 +7,7 @@ isprime = [False,False] + [True] * (sqrt_r-1)
 for p in range(2,sqrt_r+1):
     if not isprime[p]:
         continue
-    for k in range(p*2,sqrt_r+1,p):
+    for k in range(p*p,sqrt_r+1,p):
         isprime[k]=False
  
 # print(isprime)
