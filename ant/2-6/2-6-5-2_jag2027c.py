@@ -23,12 +23,9 @@ for n in range(l,r+1):
         n//=2
     f=3
     while f*f<=n:
-        # 素数以外無視
-        if isprime[f] and n%f==0:
-            factors+=1
-            n//=f
-        else:
-            f+=2
+        factors+=1
+        n//=f
+        f+=2
     if n!=1:
         factors+=1
     # print(factors)
