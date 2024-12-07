@@ -5,7 +5,7 @@ S=list(map(int,input()))
 ans=10**6
 length=[]
 
-i=1
+i=0
 while i<len(S):
     i+=1
     cnt = 1
