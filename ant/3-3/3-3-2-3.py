@@ -22,7 +22,7 @@ H=list(map(int,input().split()))
 
 #座標圧縮
 S=sorted(list(set(H)))
-if (len(A)!=len(S)):
+if (len(H)!=len(S)):
     print("-1")
     exit(0)
 
