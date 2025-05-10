@@ -17,23 +17,21 @@ class SegTree:
             if 2*i+2 < len(self.tree):
                 self.lazy[2*i+1] += self.lazy[i]
                 self.lazy[2*i+2] += self.lazy[i]
-        self.lazy[i]=0
+            self.lazy[i]=0
 
         if t <= l or s >= r:
-            return 0
+            return
 
         if s <= l and t >=r:
             self.tree[i] += x*(r-l)
-
-            self.lazy[i]=0
             if 2*i+2 < len(self.tree):
                 self.lazy[2*i+1] += x
                 self.lazy[2*i+2] += x
-            return self.tree[i]
+            return
 
         m = (l+r)//2
-        vl = self.update(s,t,x, 2*i+1, l, m)
-        vr = self.update(s,t,x, 2*i+2, m, r)
+        self.update(s,t,x, 2*i+1, l, m)
+        self.update(s,t,x, 2*i+2, m, r)
         self.tree[i] = self.tree[2*i+1] + self.tree[2*i+2]
 
     def sum(self, s, t, i=0, l=0, r=None):
@@ -49,7 +47,7 @@ class SegTree:
         
         if t <= l or s >= r:
             return 0
-        if s <= l or t >= r:
+        if s <= l and t >= r:
             return self.tree[i]
         
         m = (l+r)//2
