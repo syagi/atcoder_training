@@ -40,8 +40,8 @@ elif N<=2:
 elif M==1:
     ans=0
     # dp[S] 今持ってるカードSからあと幾らかかるか
-    dp= [inf] * (1<<N)
-    dp[-1] = 0 # フルコンプ
+    # dp= [inf] * (1<<N)
+    # dp[-1] = 0 # フルコンプ
 #    for mask in range((1<<N)-1):
 #        for i in range(N):
 
