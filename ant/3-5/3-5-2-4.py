@@ -1,4 +1,7 @@
-# http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_7_A&lang=jp
+# https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2480&lang=en
+import sys
+
+sys.setrecursionlimit(10**6)
 
 def dfs(v,t,f):
     if v==t: return f
@@ -13,30 +16,31 @@ def dfs(v,t,f):
     return 0
 
 
-X,Y,E = map(int,input().split())
+N,M = map(int,input().split())
 S = 0
-T = X+Y+1
+T = N+M+1
 G = [{} for _ in range(T+1)]
 INF = 10**18
 
 # 始点から左群へ
-for x in range(X):
+for x in range(N):
     G[S][x+1] = 1
     G[x+1][S] = 0
 
 # 右群から終点へ
-for y in range(Y):
-    G[y+X+1][T] = 1
-    G[T][y+X+1] = 0
+for y in range(M):
+    G[y+N+1][T] = 1
+    G[T][y+N+1] = 0
 
-for _ in range(E):
-    x,y = map(int,input().split())
-    x += 1
-    y += X + 1
-    G[x][y] = 1
-    G[y][x] = 0
-
-# print(G)
+# グラフ生成
+for i in range(1,N+1):
+    line = list(map(int,input().split()))
+    K = line[0]
+    B = line[1:1+K]
+    for b in B:
+        b += N
+        G[i][b] = 1
+        G[b][i] = 0
 
 flow = 0
 while True:
@@ -46,4 +50,8 @@ while True:
         break
     flow += f
 
-print(flow)
+# 2部グラフのサイズがMならBobの勝ち
+if(flow==M):
+    print("Bob")
+else:
+    print("Alice")
